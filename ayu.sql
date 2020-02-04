@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2020 at 06:54 AM
+-- Generation Time: Feb 04, 2020 at 07:06 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- PHP Version: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -124,6 +124,7 @@ INSERT INTO `data_dokter` (`id_dokter`, `nama_dokter`, `nip_dokter`, `jenis_kela
 
 CREATE TABLE `data_kia` (
   `id_kis` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `kode_anak` varchar(8) NOT NULL,
   `id_orangtua` int(16) NOT NULL,
   `nik_bayi` varchar(100) NOT NULL,
@@ -143,10 +144,8 @@ CREATE TABLE `data_kia` (
 -- Dumping data for table `data_kia`
 --
 
-INSERT INTO `data_kia` (`id_kis`, `kode_anak`, `id_orangtua`, `nik_bayi`, `agama`, `gol_darah`, `usia`, `photo_anak`, `photo_kk`, `photo_akta_kelahiran`, `photo_ktp_ayah`, `photo_ktp_ibu`, `tanggal_pengajuan`, `status`) VALUES
-(1, '7687985', 4, '1234567890098765', 'islam', 'A', 0, '', '', '', '', '', '2020-01-01', 0),
-(2, '9612696', 3, '9876543216273618', 'islam', 'B', 1, 'baby5.jpg', '', '', '', '', '2020-01-07', 0),
-(5, '7687985', 4, '8764857362536475', 'hindu', 'AB', 1, 'baby5.jpg', 'kk11.jpg', 'akta3.jpg', 'ktp_ayah5.jpeg', 'ktp_ibu5.JPG', '2020-01-21', 1);
+INSERT INTO `data_kia` (`id_kis`, `email`, `kode_anak`, `id_orangtua`, `nik_bayi`, `agama`, `gol_darah`, `usia`, `photo_anak`, `photo_kk`, `photo_akta_kelahiran`, `photo_ktp_ayah`, `photo_ktp_ibu`, `tanggal_pengajuan`, `status`) VALUES
+(6, 'jonoganteng@gmail.com', '7687985', 4, '2321432536457657', 'budha', 'AB', 1, 'WIN_20200203_23_45_50_Pro.jpg', 'WIN_20200203_23_45_50_Pro.jpg', 'WIN_20200203_23_45_50_Pro1.jpg', 'WIN_20200203_23_45_50_Pro2.jpg', 'WIN_20200203_23_45_50_Pro3.jpg', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -156,6 +155,7 @@ INSERT INTO `data_kia` (`id_kis`, `kode_anak`, `id_orangtua`, `nik_bayi`, `agama
 
 CREATE TABLE `data_orangtua` (
   `id_orangtua` int(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `nik_ayah` varchar(16) NOT NULL,
   `nama_ayah` varchar(50) NOT NULL,
   `nik_ibu` varchar(16) NOT NULL,
@@ -169,9 +169,9 @@ CREATE TABLE `data_orangtua` (
 -- Dumping data for table `data_orangtua`
 --
 
-INSERT INTO `data_orangtua` (`id_orangtua`, `nik_ayah`, `nama_ayah`, `nik_ibu`, `nama_ibu`, `alamat_lengkap`, `pekerjaan`, `agama`) VALUES
-(3, '1234567890123465', 'soparjo', '1234567890987654', 'anah', 'cilacap', 'buruh', 'islam'),
-(4, '7654324152637489', 'indra wibowo', '8475648392837465', 'intan mutiara', 'jakrta tebet', 'karyawan swasta', 'islam');
+INSERT INTO `data_orangtua` (`id_orangtua`, `email`, `nik_ayah`, `nama_ayah`, `nik_ibu`, `nama_ibu`, `alamat_lengkap`, `pekerjaan`, `agama`) VALUES
+(3, 'anjani@gmail.com', '1234567890123465', 'soparjo', '1234567890987654', 'anah', 'cilacap', 'buruh', 'islam'),
+(4, 'jonoganteng@gmail.com', '7654324152637489', 'indra wibowo', '8475648392837465', 'intan mutiara', 'jakrta tebet', 'karyawan swasta', 'islam');
 
 -- --------------------------------------------------------
 
@@ -201,7 +201,7 @@ INSERT INTO `data_users` (`id_user`, `nama`, `ktp`, `email`, `username`, `passwo
 (6, 'perugas kelurahan', '', 'petugaskelurahan@gmail.com', 'petugas kelurahan', '56f6189cf064a8736e3af760c8f061ce', '', 3, '2020-01-14 20:20:21'),
 (7, 'diskupcapil', '', 'diskupcapil@gmail.com', 'diskupcapil', '3afdffb666a8d51d72143255227ef9d2', '', 4, '2020-01-14 20:21:19'),
 (8, 'user', '', 'user@gmail.com', 'user', 'b5b73fae0d87d8b4e2573105f8fbe7bc', '', 5, '2020-01-14 20:22:24'),
-(9, 'jono', '9837464848574857', 'jonoganteng@gmail.com', 'jonoganteng', '4e704957c887599668f1b1c9d897c40f', '', 5, '2020-01-24 18:49:40'),
+(9, 'jono', '7654324152637489', 'jonoganteng@gmail.com', 'jonoganteng', '4e704957c887599668f1b1c9d897c40f', '', 5, '2020-02-04 17:17:45'),
 (10, 'jini', '7364746486383684', 'jinicantik@gmail.com', 'jinicantik', '250aea522cb5889e7c4a7a9c421eafcb', '081217388495', 5, '2020-01-24 19:01:31'),
 (11, 'rinjani amalia', '8347328957248574', 'rinjanicantik@gmail.com', 'rinjanicantik', '82a15bdb6dc9f3c7abb54aa6a7403029', '0817326454757', 5, '2020-01-24 19:24:05'),
 (12, 'anjani', '8237198347329524', 'anjani@gmail.com', 'anjani', '15dcb3093711564b7b7e6e9be95a9968', '0939483948', 5, '2020-01-24 19:28:00');
@@ -285,7 +285,7 @@ ALTER TABLE `data_dokter`
 -- AUTO_INCREMENT for table `data_kia`
 --
 ALTER TABLE `data_kia`
-  MODIFY `id_kis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `data_orangtua`
